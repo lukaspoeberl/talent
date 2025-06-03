@@ -11,7 +11,7 @@ const vehicleData: VehicleData = await response.json();
   <div class="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
     <div class="flex flex-col md:flex-row gap-6">
       <div class="md:w-1/2 flex justify-center items-center">
-        <img src={vehicleData.overview.imageUrls[0]} alt={vehicleData.overview.header} class="rounded-lg w-full object-cover max-h-80" />
+        <img src={vehicleData.overview.imageUrls[0] + '/webp/768'} alt={vehicleData.overview.header} class="rounded-lg w-full object-cover max-h-80" />
       </div>
       <div class="md:w-1/2 flex flex-col justify-between">
         <div>
