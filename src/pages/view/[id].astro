@@ -1,0 +1,15 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const { id } = Astro.params;
+const response = await fetch(`https://www.dasweltauto.at/api/locales/de_AT/vehicles/${id}/detail`);
+const vehicleData = await response.json();
+---
+
+<Layout>
+  <h1>auto:</h1>
+  
+  <p>{vehicleData.overview.header}</p>
+  <pre>{JSON.stringify(vehicleData, null, 2)}</pre>
+</Layout>
