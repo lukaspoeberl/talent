@@ -12,6 +12,7 @@
     "@astrojs/netlify": "^6.3.4",
     "@tailwindcss/vite": "^4.1.8",
     "astro": "^5.8.1",
+    "openai": "^5.1.0",
     "tailwindcss": "^4.1.8"
   }
 }

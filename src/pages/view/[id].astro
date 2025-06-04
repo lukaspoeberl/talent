@@ -1,10 +1,12 @@
 ---
 import Welcome from '../../components/Welcome.astro';
 import Layout from '../../layouts/Layout.astro';
+import { getAISummary } from '../../utils/aiSummary.ts';
 
 const { id } = Astro.params;
 const response = await fetch(`https://www.dasweltauto.at/api/locales/de_AT/vehicles/${id}/detail`);
 const vehicleData: VehicleData = await response.json();
+const aiSummary = await getAISummary(vehicleData);
 ---
 
 <Layout>
@@ -34,6 +36,10 @@ const vehicleData: VehicleData = await response.json();
     <div class="mt-8">
       <h3 class="text-lg font-semibold mb-2">Weitere Informationen</h3>
       <p class="whitespace-pre-line text-gray-700">{vehicleData.additionalInfo.text}</p>
+    </div>
+    <div class="mt-8">
+      <h3 class="text-lg font-semibold mb-2">AI Zusammenfassung</h3>
+      <p class="whitespace-pre-line text-blue-900 bg-blue-50 rounded p-4 border border-blue-200">{aiSummary}</p>
     </div>
     <details class="mt-8 bg-gray-50 rounded p-4">
       <summary class="cursor-pointer font-semibold text-gray-700">JSON anzeigen (Debug)</summary>
