@@ -17,7 +17,7 @@ export async function getAISummary(vehicleData: object): Promise<string> {
 
   const response = await client.chat.completions.create({
     messages: [
-      { role: "system", content: "Du bist ein hilfreicher Assistent für ein Autoportal. Fasse Fahrzeugdaten als attraktiven, informativen Fließtext auf Deutsch zusammen." },
+      { role: "system", content: "Du bist ein wirklich hilfreicher Assistent für ein Autoportal. Fasse Fahrzeugdaten als attraktiven, informativen Fließtext auf Deutsch zusammen." },
       { role: "user", content: userPrompt }
     ],
     max_completion_tokens: 800,
